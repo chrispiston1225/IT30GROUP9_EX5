@@ -1,0 +1,26 @@
+[
+    {
+        "first_name": "chris",
+        "last_name": "piston",
+        "email": "chris@gmail.com",
+        "password": "12345678",
+        "address": "Teresa Compound",
+        "gender": "M"
+    },
+    {
+        "first_name": "haven",
+        "last_name": "rano",
+        "email": "haven@gmail.com",
+        "password": "12345678",
+        "address": "Teresa Compound",
+        "gender": "M"
+    },
+    {
+        "first_name": "marie",
+        "last_name": "piston",
+        "email": "marie@gmail.com",
+        "password": "12345678",
+        "address": "Teresa Compound",
+        "gender": "F"
+    }
+]

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Form</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Fill out this form</h1>
+        <form id="registrationForm" method="post">
+            <label for="fName">First Name:</label>
+            <input type="text" name="fName" id="fName" required><br>
+
+            <label for="lName">Last Name:</label>
+            <input type="text" name="lName" id="lName" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required><br>
+
+            <label for="address">Address:</label>
+            <input type="text" name="address" id="address" required><br>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Other</option>
+            </select><br>
+
+            <button type="submit">Submit</button>
+        </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <div id="responseMessage"></div>
+    </div>
+    <footer>
+        <p>&copy; EXERCISE 5 GROUP 9.</p>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            $('#registrationForm').on('submit', function(event) {
+                event.preventDefault();
+
+                $.ajax({
+                    url: 'submitform.php',
+                    type: 'POST',
+                    data: $(this).serialize(), 
+                    success: function(response) {
+                        $('#responseMessage').html('<p>' + response + '</p>');
+                        $('#registrationForm')[0].reset();
+                    },
+                    error: function() {
+                        $('#responseMessage').html('<p style="color:red;">An error occurred. Please try again.</p>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
